@@ -94,5 +94,7 @@ label_settings = SubResource("LabelSettings_ka187")
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[connection signal="pressed" from="HBoxContainer/IncrementButton" to="." method="_on_increment_button_pressed"]
-[connection signal="pressed" from="HBoxContainer/DecrementButton" to="." method="_on_decrement_button_pressed"]
+[connection signal="button_down" from="HBoxContainer/IncrementButton" to="." method="_on_increment_button_button_down"]
+[connection signal="button_up" from="HBoxContainer/IncrementButton" to="." method="_on_increment_button_button_up"]
+[connection signal="button_down" from="HBoxContainer/DecrementButton" to="." method="_on_decrement_button_button_down"]
+[connection signal="button_up" from="HBoxContainer/DecrementButton" to="." method="_on_decrement_button_button_up"]

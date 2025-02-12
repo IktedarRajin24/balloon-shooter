@@ -1,26 +1,38 @@
 extends Control
 
-var angle: float = GameManager.get_angle()
+var incrementing = false
+var decrementing = false
+
 @onready var angle_label: Label = $HBoxContainer/Angle/AngleLabel
 @onready var cannon: CANNON = $"../Cannon"
 
+func _ready() -> void:
+	add_to_group("UI")
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	angle = GameManager.get_angle()
+	var angle = GameManager.get_angle()
 	angle_label.text = str(int(angle))
 
-
-func _on_increment_button_pressed() -> void:
-	if angle < 90:
+	if incrementing and angle < 90:
 		GameManager.increase_angle()
 		cannon.set_cannon_rotation(1)
-		SignalManager.on_angle_change.emit(angle)
 
-
-func _on_decrement_button_pressed() -> void:
-	if angle > 0:
+	if decrementing and angle > 0:
 		GameManager.decrease_angle()
 		cannon.set_cannon_rotation(-1)
-		SignalManager.on_angle_change.emit(angle)
+
+func _on_increment_button_button_down() -> void:
+	incrementing = true
+
+func _on_increment_button_button_up() -> void:
+	incrementing = false
+
+func _on_decrement_button_button_down() -> void:
+	decrementing = true
+
+func _on_decrement_button_button_up() -> void:
+	decrementing = false
 		
+func update_label(angle: float)-> void:
+	angle_label.text = str(int(angle))
+	

@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://ro7etxc4q86a"]
+
+[ext_resource type="Texture2D" uid="uid://coqbe1bt8iq7e" path="res://assets/player/parrot.png" id="1_2ll2e"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_2htb2"]
+radius = 6.32456
+
+[node name="CannonBall" type="RigidBody2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.05, 0.05)
+texture = ExtResource("1_2ll2e")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_2htb2")
