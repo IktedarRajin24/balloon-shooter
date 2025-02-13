@@ -1,0 +1,41 @@
+[gd_scene load_steps=5 format=3 uid="uid://dt0fhp1otgrta"]
+
+[ext_resource type="Texture2D" uid="uid://k7mc587ntt7y" path="res://assets/ui/panel_beige.png" id="1_83asd"]
+[ext_resource type="Script" path="res://scripts/back_button.gd" id="2_m7k0p"]
+[ext_resource type="FontFile" uid="uid://dxmnlqbae6jqo" path="res://assets/fonts/LuckiestGuy-Regular.ttf" id="2_qql1t"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_066wu"]
+font = ExtResource("2_qql1t")
+font_size = 24
+outline_size = 2
+outline_color = Color(0, 0, 0, 1)
+shadow_color = Color(0, 0, 0, 0.196078)
+
+[node name="BackButton" type="TextureButton"]
+offset_right = 40.0
+offset_bottom = 40.0
+scale = Vector2(0.4, 0.4)
+texture_normal = ExtResource("1_83asd")
+script = ExtResource("2_m7k0p")
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -11.5
+offset_right = 20.0
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "Back"
+label_settings = SubResource("LabelSettings_066wu")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]
+[connection signal="pressed" from="." to="." method="_on_pressed"]

@@ -1,0 +1,22 @@
+[gd_scene load_steps=3 format=3 uid="uid://bttyrodi8y4yo"]
+
+[ext_resource type="PackedScene" uid="uid://cwn2wh8k22ab2" path="res://scenes/level/level.tscn" id="1_kwkcy"]
+[ext_resource type="PackedScene" uid="uid://5qin1yt3l7sm" path="res://scenes/balloon/balloon.tscn" id="2_vgl3m"]
+
+[node name="Level" instance=ExtResource("1_kwkcy")]
+
+[node name="Balloon" parent="." index="7" instance=ExtResource("2_vgl3m")]
+position = Vector2(555, 378)
+
+[node name="Balloon2" parent="." index="8" instance=ExtResource("2_vgl3m")]
+position = Vector2(802, 249)
+
+[node name="PinJoint2D" type="PinJoint2D" parent="." index="9"]
+position = Vector2(561, 526)
+node_a = NodePath("../Balloon")
+node_b = NodePath("../Ground")
+
+[node name="PinJoint2D2" type="PinJoint2D" parent="." index="10"]
+position = Vector2(814, 444)
+node_a = NodePath("../Balloon2")
+node_b = NodePath("../Ground")

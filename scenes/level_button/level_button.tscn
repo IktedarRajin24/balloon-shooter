@@ -1,0 +1,50 @@
+[gd_scene load_steps=6 format=3 uid="uid://cqcy567uvcvvg"]
+
+[ext_resource type="Texture2D" uid="uid://k7mc587ntt7y" path="res://assets/ui/panel_beige.png" id="1_gleya"]
+[ext_resource type="Script" path="res://scripts/level_button.gd" id="2_egxuo"]
+[ext_resource type="FontFile" uid="uid://dxmnlqbae6jqo" path="res://assets/fonts/LuckiestGuy-Regular.ttf" id="2_wa0wl"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_mgqyd"]
+font = ExtResource("2_wa0wl")
+font_size = 44
+
+[sub_resource type="LabelSettings" id="LabelSettings_uvx2m"]
+font = ExtResource("2_wa0wl")
+font_size = 30
+
+[node name="LevelButton" type="TextureButton"]
+offset_right = 40.0
+offset_bottom = 40.0
+texture_normal = ExtResource("1_gleya")
+script = ExtResource("2_egxuo")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_top = 10
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 12
+
+[node name="LevelLabel" type="Label" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "3"
+label_settings = SubResource("LabelSettings_mgqyd")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ScoreLabel" type="Label" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "100"
+label_settings = SubResource("LabelSettings_uvx2m")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]
+[connection signal="pressed" from="." to="." method="_on_pressed"]

@@ -1,10 +1,15 @@
-[gd_scene load_steps=4 format=3 uid="uid://dkkdk1y06vxxf"]
+[gd_scene load_steps=6 format=3 uid="uid://dkkdk1y06vxxf"]
 
 [ext_resource type="Script" path="res://scripts/cannon.gd" id="1_l63ob"]
 [ext_resource type="Texture2D" uid="uid://r8v3dtcgos3s" path="res://assets/player/canon.png" id="2_ftdxm"]
+[ext_resource type="Shader" path="res://shader/cannon.gdshader" id="3_yfgyk"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_3mo5p"]
 size = Vector2(30, 85.7143)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_m5k0a"]
+shader = ExtResource("3_yfgyk")
+shader_parameter/time = null
 
 [node name="Cannon" type="StaticBody2D"]
 position = Vector2(0, 8)
@@ -18,8 +23,13 @@ texture = ExtResource("2_ftdxm")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0.714285, -44.2856)
-scale = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_3mo5p")
 
 [node name="ball_spawner" type="Marker2D" parent="."]
 position = Vector2(0, -108.571)
+
+[node name="aim_direction" type="Line2D" parent="."]
+material = SubResource("ShaderMaterial_m5k0a")
+width = 20.0
+default_color = Color(0, 0, 0, 1)
+texture_mode = 1

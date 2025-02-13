@@ -1,0 +1,58 @@
+[gd_scene load_steps=3 format=3 uid="uid://bi4xwjkx56myk"]
+
+[ext_resource type="PackedScene" uid="uid://cwn2wh8k22ab2" path="res://scenes/level/level.tscn" id="1_3s7m6"]
+[ext_resource type="PackedScene" uid="uid://5qin1yt3l7sm" path="res://scenes/balloon/balloon.tscn" id="2_ff8wv"]
+
+[node name="Level" instance=ExtResource("1_3s7m6")]
+
+[node name="Balloon2" parent="." index="7" instance=ExtResource("2_ff8wv")]
+position = Vector2(514, 186)
+
+[node name="Balloon4" parent="." index="8" instance=ExtResource("2_ff8wv")]
+position = Vector2(876, 147)
+
+[node name="Balloon5" parent="." index="9" instance=ExtResource("2_ff8wv")]
+position = Vector2(1059, 278)
+
+[node name="Balloon6" parent="." index="10" instance=ExtResource("2_ff8wv")]
+position = Vector2(713, 362)
+
+[node name="PinJoint2D3" type="PinJoint2D" parent="." index="11"]
+position = Vector2(516, 334)
+node_a = NodePath("../Balloon2")
+node_b = NodePath("../Ground")
+disable_collision = false
+softness = 1.0
+angular_limit_enabled = true
+angular_limit_lower = 0.174533
+angular_limit_upper = 0.0349066
+
+[node name="PinJoint2D5" type="PinJoint2D" parent="." index="12"]
+position = Vector2(877, 347)
+node_a = NodePath("../Balloon4")
+node_b = NodePath("../Ground")
+disable_collision = false
+softness = 1.0
+angular_limit_enabled = true
+angular_limit_lower = 0.174533
+angular_limit_upper = 0.0349066
+
+[node name="PinJoint2D6" type="PinJoint2D" parent="." index="13"]
+position = Vector2(1062, 380)
+node_a = NodePath("../Balloon5")
+node_b = NodePath("../Ground")
+disable_collision = false
+softness = 1.0
+angular_limit_enabled = true
+angular_limit_lower = 0.174533
+angular_limit_upper = 0.0349066
+
+[node name="PinJoint2D7" type="PinJoint2D" parent="." index="14"]
+position = Vector2(717, 504)
+node_a = NodePath("../Balloon6")
+node_b = NodePath("../Ground")
+disable_collision = false
+softness = 1.0
+angular_limit_enabled = true
+angular_limit_lower = 0.174533
+angular_limit_upper = 0.0349066
