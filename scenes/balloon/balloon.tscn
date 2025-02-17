@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://5qin1yt3l7sm"]
+[gd_scene load_steps=13 format=3 uid="uid://5qin1yt3l7sm"]
 
 [ext_resource type="Texture2D" uid="uid://bnopfo6oir5ob" path="res://assets/balloon/1.png" id="1_3dm06"]
 [ext_resource type="Script" path="res://scripts/balloon.gd" id="1_cjf5n"]
@@ -7,6 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://nu77pc42p1kv" path="res://assets/balloon/4.png" id="4_e0vi6"]
 [ext_resource type="Texture2D" uid="uid://qittn310be66" path="res://assets/balloon/6.png" id="5_c4c56"]
 [ext_resource type="Texture2D" uid="uid://6sg828pwqjp8" path="res://assets/balloon/5.png" id="6_y1n43"]
+[ext_resource type="AudioStream" uid="uid://dow3g5lpyy7cf" path="res://assets/audio/balloon-pop.mp3" id="8_6o3m0"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_k0ie6"]
 radius = 29.0
@@ -67,6 +68,10 @@ shape = SubResource("CapsuleShape2D_k0ie6")
 libraries = {
 "": SubResource("AnimationLibrary_q6b21")
 }
+
+[node name="BalloonPopAudio" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("8_6o3m0")
+volume_db = 5.0
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="body_shape_entered" from="." to="." method="_on_body_shape_entered"]

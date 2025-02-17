@@ -1,24 +1,27 @@
 shader_type canvas_item;
 
-uniform float time : hint_range(0.0, 10.0); // Uniform to control time-based animation
-
-void vertex() {
-	// Called for every vertex the material is visible on.
-}
+uniform vec4 color : source_color = vec4(0.0, 0.0, 0.0, 1.0);
+uniform float direction : hint_range(-1.0, 1.0) = -1.0;
+uniform float frequency : hint_range(0.1, 30.0) = 15.0;
+uniform float speed : hint_range(0.5, 20.0) = 3.0;
+uniform float dot_spacing : hint_range(0.1, 1.0) = 0.7;
+uniform float dot_radius : hint_range(0.01, 0.5) = 0.2;
 
 void fragment() {
-	// Called for every pixel the material is visible on.
-    float dot_spacing = 0.7; // Smaller values = more dots
-    float dot_radius = 0.2;  // Larger values = bigger dots
-    
-    // Modify the UV.x to make the dots move horizontally over time
-    float animated_x = UV.x + sin(time + UV.y * 10.0) * 0.1; // Sinusoidal movement
-    float nearest_dot = floor(animated_x / dot_spacing + 0.5) * dot_spacing;
-    
+    // Calculate grid-based dots
+    float nearest_dot = floor(UV.x / dot_spacing + 0.5) * dot_spacing;
     vec2 center = vec2(nearest_dot, 0.5);
     float dist = length(UV - center);
-    
-    // Create smooth dots
     float alpha = 1.0 - smoothstep(dot_radius - 0.001, dot_radius + 0.001, dist);
-    COLOR = vec4(0.0, 0.0, 0.0, alpha);
+
+    // Calculate polar coordinates
+    vec2 pos = UV - vec2(0.5);
+    float angle = atan(pos.y, pos.x);
+
+    // Create rotating wave pattern
+    float wave = 0.5 * sin(direction * frequency * angle + TIME * speed) + 0.5;
+    float mask = step(0.5, wave);
+
+    // Combine dot pattern with rotating mask
+    COLOR = vec4(color.rgb, alpha * mask * color.a);
 }

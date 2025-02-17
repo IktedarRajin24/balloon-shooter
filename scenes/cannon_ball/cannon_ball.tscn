@@ -1,6 +1,7 @@
-[gd_scene load_steps=3 format=3 uid="uid://ro7etxc4q86a"]
+[gd_scene load_steps=4 format=3 uid="uid://ro7etxc4q86a"]
 
 [ext_resource type="Texture2D" uid="uid://coqbe1bt8iq7e" path="res://assets/player/parrot.png" id="1_2ll2e"]
+[ext_resource type="Script" path="res://scripts/cannon_ball.gd" id="1_pknd7"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_2htb2"]
 radius = 6.32456
@@ -9,6 +10,7 @@ radius = 6.32456
 continuous_cd = 2
 contact_monitor = true
 max_contacts_reported = 1
+script = ExtResource("1_pknd7")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 scale = Vector2(0.05, 0.05)

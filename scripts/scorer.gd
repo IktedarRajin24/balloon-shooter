@@ -11,7 +11,6 @@ func _ready() -> void:
 	_level_number = ScoreManager.get_level_selected()
 	SignalManager.on_attempt_made.connect(on_attempt_made)
 	SignalManager.on_balloon_destroyed.connect(on_balloon_destroyed)
-	print(_total_balloons)
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -25,7 +24,7 @@ func on_attempt_made() -> void:
 
 func on_balloon_destroyed() -> void:
 	_balloons_destroyed += 1
+	print(_balloons_destroyed)
 	if _balloons_destroyed == _total_balloons:
 		SignalManager.on_level_complete.emit()
-		print(_attempts)
 		ScoreManager.set_level_score(_attempts, str(_level_number))

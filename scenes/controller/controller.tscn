@@ -5,6 +5,7 @@
 [ext_resource type="FontFile" uid="uid://dxmnlqbae6jqo" path="res://assets/fonts/LuckiestGuy-Regular.ttf" id="2_67bmd"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_ka187"]
+line_spacing = 0.0
 font = ExtResource("2_67bmd")
 font_size = 95
 
@@ -28,24 +29,25 @@ offset_right = 40.0
 offset_bottom = 40.0
 theme_override_constants/separation = 12
 
-[node name="IncrementButton" type="TextureButton" parent="HBoxContainer"]
+[node name="DecrementButton" type="TextureButton" parent="HBoxContainer"]
 layout_mode = 2
 texture_normal = ExtResource("1_rgeke")
 
-[node name="Plus" type="Label" parent="HBoxContainer/IncrementButton"]
+[node name="Minus" type="Label" parent="HBoxContainer/DecrementButton"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -20.0
-offset_top = -34.5
-offset_right = 20.0
-offset_bottom = 34.5
+offset_left = -21.5
+offset_top = -48.0
+offset_right = 21.5
+offset_bottom = 48.0
 grow_horizontal = 2
 grow_vertical = 2
-text = "+"
+text = "<
+"
 label_settings = SubResource("LabelSettings_ka187")
 horizontal_alignment = 1
 vertical_alignment = 1
@@ -72,11 +74,11 @@ label_settings = SubResource("LabelSettings_cca1k")
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="DecrementButton" type="TextureButton" parent="HBoxContainer"]
+[node name="IncrementButton" type="TextureButton" parent="HBoxContainer"]
 layout_mode = 2
 texture_normal = ExtResource("1_rgeke")
 
-[node name="Minus" type="Label" parent="HBoxContainer/DecrementButton"]
+[node name="Plus" type="Label" parent="HBoxContainer/IncrementButton"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -89,12 +91,12 @@ offset_right = 20.0
 offset_bottom = 34.5
 grow_horizontal = 2
 grow_vertical = 2
-text = "-"
+text = ">"
 label_settings = SubResource("LabelSettings_ka187")
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[connection signal="button_down" from="HBoxContainer/IncrementButton" to="." method="_on_increment_button_button_down"]
-[connection signal="button_up" from="HBoxContainer/IncrementButton" to="." method="_on_increment_button_button_up"]
 [connection signal="button_down" from="HBoxContainer/DecrementButton" to="." method="_on_decrement_button_button_down"]
 [connection signal="button_up" from="HBoxContainer/DecrementButton" to="." method="_on_decrement_button_button_up"]
+[connection signal="button_down" from="HBoxContainer/IncrementButton" to="." method="_on_increment_button_button_down"]
+[connection signal="button_up" from="HBoxContainer/IncrementButton" to="." method="_on_increment_button_button_up"]

@@ -1,8 +1,9 @@
-[gd_scene load_steps=6 format=3 uid="uid://cqcy567uvcvvg"]
+[gd_scene load_steps=7 format=3 uid="uid://cqcy567uvcvvg"]
 
 [ext_resource type="Texture2D" uid="uid://k7mc587ntt7y" path="res://assets/ui/panel_beige.png" id="1_gleya"]
 [ext_resource type="Script" path="res://scripts/level_button.gd" id="2_egxuo"]
 [ext_resource type="FontFile" uid="uid://dxmnlqbae6jqo" path="res://assets/fonts/LuckiestGuy-Regular.ttf" id="2_wa0wl"]
+[ext_resource type="AudioStream" uid="uid://gd4lq56nl13i" path="res://assets/audio/kick_wood.ogg" id="4_k1ljt"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_mgqyd"]
 font = ExtResource("2_wa0wl")
@@ -45,6 +46,10 @@ text = "1000"
 label_settings = SubResource("LabelSettings_uvx2m")
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="wood_audio" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_k1ljt")
+volume_db = 10.0
 
 [connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
 [connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]

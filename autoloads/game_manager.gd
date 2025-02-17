@@ -13,3 +13,6 @@ func decrease_angle()-> void:
 		
 func get_angle()-> float:
 	return rotation_angle
+
+func set_angle(angle: int)-> void:
+	rotation_angle = angle

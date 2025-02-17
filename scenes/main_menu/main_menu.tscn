@@ -1,7 +1,18 @@
-[gd_scene load_steps=3 format=3 uid="uid://dff6626vtbsms"]
+[gd_scene load_steps=6 format=3 uid="uid://dff6626vtbsms"]
 
 [ext_resource type="Texture2D" uid="uid://dbqj4vxewq0g2" path="res://assets/env/MainBG.png" id="1_wox0o"]
 [ext_resource type="PackedScene" uid="uid://cqcy567uvcvvg" path="res://scenes/level_button/level_button.tscn" id="2_tw3q7"]
+[ext_resource type="FontFile" uid="uid://dxmnlqbae6jqo" path="res://assets/fonts/LuckiestGuy-Regular.ttf" id="3_1pj8x"]
+[ext_resource type="AudioStream" uid="uid://ln8rnp5xfpu2" path="res://assets/audio/background-music.mp3" id="4_2av44"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_3b2r6"]
+font = ExtResource("3_1pj8x")
+font_size = 96
+font_color = Color(0.747133, 0.109064, 0, 1)
+outline_size = 5
+shadow_size = 5
+shadow_color = Color(0.247059, 0, 0, 0.529412)
+shadow_offset = Vector2(5, 5)
 
 [node name="MainMenu" type="Control"]
 layout_mode = 3
@@ -12,6 +23,8 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="TextureRect" type="TextureRect" parent="."]
+modulate = Color(0.505882, 0.505882, 0.505882, 0.603922)
+show_behind_parent = true
 layout_mode = 0
 offset_right = 40.0
 offset_bottom = 40.0
@@ -42,3 +55,21 @@ level_number = 2
 [node name="LevelButton3" parent="HBoxContainer" instance=ExtResource("2_tw3q7")]
 layout_mode = 2
 level_number = 3
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -20.0
+offset_top = 83.0
+offset_right = 20.0
+offset_bottom = 106.0
+grow_horizontal = 2
+text = "Balloon shooter"
+label_settings = SubResource("LabelSettings_3b2r6")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_2av44")
+autoplay = true
+mix_target = 1
