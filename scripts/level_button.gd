@@ -12,6 +12,8 @@ var level_scene: PackedScene
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	level_label.text = str(level_number)
+	var best_score = ScoreManager.get_best_for_level(str(level_number))
+	score_label.text = str(best_score)
 	level_scene = load("res://scenes/level/level_%s.tscn" % level_number)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -20,6 +22,7 @@ func _process(delta: float) -> void:
 
 
 func _on_pressed() -> void:
+	ScoreManager.set_level_selected(level_number)
 	get_tree().change_scene_to_packed(level_scene)
 
 

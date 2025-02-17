@@ -49,7 +49,7 @@ _data = {
 "balloon_pop": SubResource("Animation_2x7o2")
 }
 
-[node name="Balloon" type="RigidBody2D"]
+[node name="Balloon" type="RigidBody2D" groups=["balloon"]]
 gravity_scale = -1.0
 contact_monitor = true
 max_contacts_reported = 1

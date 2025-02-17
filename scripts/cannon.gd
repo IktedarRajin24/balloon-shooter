@@ -34,7 +34,7 @@ func _get_rotation_degrees()-> float:
 	return self.rotation_degrees
 	
 func set_cannon_rotation(amount: float)-> void:
-	rotation += deg_to_rad(amount)
+	rotation += amount
 
 func _update_aim_line():
 	var start_pos = ball_spawner.position

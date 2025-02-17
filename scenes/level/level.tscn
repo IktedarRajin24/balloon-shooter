@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://cwn2wh8k22ab2"]
+[gd_scene load_steps=11 format=3 uid="uid://cwn2wh8k22ab2"]
 
 [ext_resource type="Script" path="res://scripts/level.gd" id="1_ghet1"]
 [ext_resource type="Texture2D" uid="uid://dbqj4vxewq0g2" path="res://assets/env/MainBG.png" id="1_pc7wf"]
@@ -9,6 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://chbuijg285g4y" path="res://scenes/shoot_button/shoot_button.tscn" id="5_nml6k"]
 [ext_resource type="PackedScene" uid="uid://ddkku5gvtmdqq" path="res://scenes/ground/ground.tscn" id="9_k6gm1"]
 [ext_resource type="PackedScene" uid="uid://dt0fhp1otgrta" path="res://scenes/back_button/back_button.tscn" id="9_ou84a"]
+[ext_resource type="PackedScene" uid="uid://b8lvfn4d4501n" path="res://scenes/scorer/scorer.tscn" id="10_kab88"]
 
 [node name="Level" type="Node2D"]
 script = ExtResource("1_ghet1")
@@ -65,5 +66,7 @@ offset_left = 59.0
 offset_top = 35.0
 offset_right = 159.0
 offset_bottom = 135.0
+
+[node name="Scorer" parent="." instance=ExtResource("10_kab88")]
 
 [connection signal="pressed" from="ShootButton" to="." method="_on_shoot_button_pressed"]

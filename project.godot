@@ -25,6 +25,10 @@ ScoreManager="*res://autoloads/score_manager.gd"
 
 window/stretch/mode="canvas_items"
 
+[global_group]
+
+balloon=""
+
 [input]
 
 left={

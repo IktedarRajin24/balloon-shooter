@@ -9,6 +9,7 @@ func _on_body_entered(body: Node2D) -> void:
 	
 func die()-> void:
 	balloon_anim.play("balloon_pop")
+	SignalManager.on_balloon_destroyed.emit()
 
 func _on_balloon_anim_animation_finished(anim_name: StringName) -> void:
 	queue_free()
