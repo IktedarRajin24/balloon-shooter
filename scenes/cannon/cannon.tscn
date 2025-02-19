@@ -1,20 +1,16 @@
-[gd_scene load_steps=6 format=3 uid="uid://dkkdk1y06vxxf"]
+[gd_scene load_steps=7 format=3 uid="uid://dkkdk1y06vxxf"]
 
 [ext_resource type="Script" path="res://scripts/cannon.gd" id="1_l63ob"]
 [ext_resource type="Texture2D" uid="uid://r8v3dtcgos3s" path="res://assets/player/canon.png" id="2_ftdxm"]
 [ext_resource type="Shader" path="res://shader/cannon.gdshader" id="3_yfgyk"]
+[ext_resource type="Texture2D" uid="uid://b68u4odyatvry" path="res://assets/items/dotted_line.png" id="4_8o6ww"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_3mo5p"]
 size = Vector2(30, 85.7143)
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_m5k0a"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_5eh0x"]
 shader = ExtResource("3_yfgyk")
-shader_parameter/color = Color(0, 0, 0, 1)
-shader_parameter/direction = 1.0
-shader_parameter/frequency = 1.5
-shader_parameter/speed = 10.0
-shader_parameter/dot_spacing = 0.7
-shader_parameter/dot_radius = 0.2
+shader_parameter/scroll_speed = 1.0
 
 [node name="Cannon" type="StaticBody2D"]
 position = Vector2(0, 8)
@@ -31,10 +27,12 @@ position = Vector2(0.714285, -44.2856)
 shape = SubResource("RectangleShape2D_3mo5p")
 
 [node name="ball_spawner" type="Marker2D" parent="."]
-position = Vector2(0, -108.571)
+position = Vector2(0, -100)
 
 [node name="aim_direction" type="Line2D" parent="."]
-material = SubResource("ShaderMaterial_m5k0a")
+material = SubResource("ShaderMaterial_5eh0x")
+points = PackedVector2Array(0, -90, 0, -275.714)
 width = 20.0
-default_color = Color(0, 0, 0, 1)
+texture = ExtResource("4_8o6ww")
 texture_mode = 1
+joint_mode = 1
